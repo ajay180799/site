@@ -5,21 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajay's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(120deg, #3a1c71, #d76d77, #6f86d6);
+            background-attachment: fixed;
+            height: 100%;
+            margin: 0;
+            color: #333;
+        }
+
+        
+        .btn-primary {
+            background-color: #333;
+        }
+
+        .btn-secondary {
+            background-color: #666;
+        }
+    </style>
 </head>
 
-<body class="bg-light">
+<body>
 
     <div class="container my-5">
-        <div class="jumbotron bg-white shadow">
-            <h1 class="display-4">Your Name</h1>
-            <p class="lead">A final year Computer Science graduate at VIT, Chennai. An aspiring student with curiosity to perennially learn new things in Software engineering, Data science. Strong collaborator with a deep understanding of team dynamics and the ability to adapt seamlessly. </p>
+        <div class="jumbotron bg-white shadow" data-aos="fade-up">
+            <h1 class="display-4">Ajay Rajkumar K</h1>
+            <p class="lead">An aspiring Computer Science student with curiosity to perennially learn new things in Software engineering, Data science. Strong collaborator with a deep understanding of team dynamics and the ability to adapt seamlessly.</p>
             <hr class="my-4">
             <p>Discover more about my professional journey.</p>
             <a class="btn btn-primary btn-lg" href="path_to_your_resume.pdf" role="button">View My Resume</a>
         </div>
 
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="300">
             <div class="card-body">
                 <h2 class="card-title">Projects</h2>
                 <p class="card-text">I have a variety of projects that showcase my skills and expertise. Check them out on GitHub!</p>
@@ -33,6 +54,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
