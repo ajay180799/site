@@ -10,28 +10,16 @@
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <style>
 
-        @keyframes waveAnimation {
-            0%, 20%, 50%, 80%, 100% {
-                transform: rotate(0deg);
-            }
-            10%, 30% {
-                transform: rotate(-10deg);
-            }
-            40%, 60% {
-                transform: rotate(5deg);
-            }
-            70% {
-                transform: rotate(-5deg);
-            }
+        @keyframes sparkleShine {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        
+        .sparkles {
+            display: inline-block;
+            animation: sparkleShine 1s infinite;
         }
 
-        .wave-hand {
-            display: inline-block;
-            animation-name: waveAnimation;
-            animation-duration: 2.5s;
-            animation-iteration-count: infinite;
-            transform-origin: 70% 70%;
-        }
 
         .introduction {
             font-size: 2em;  /* Adjust this value to your preference */
@@ -131,7 +119,7 @@
     <!-- Jumbotron with AOS effects -->
     <div class="jumbotron bg-white shadow" data-aos="fade-up" data-aos-duration="500">
         <div class="introduction">
-            Hello there! <span class="wave-hand">👋🏻</span>
+            Hello there! <span class="lightbulb">💡</span>
             <br>
             I'm <span style="color: #800080;">Ajay Rajkumar</span>
         </div>
