@@ -21,37 +21,51 @@
                 background-position: 0% 50%;
             }
         }
-       @keyframes typing {
-        0%, 50% { max-width: 0%; }
-        100% { max-width: 100%; }
-    }
-
-        
-        @keyframes blink {
-            50% { border-color: transparent; }
+       /* Container to hold the typing text */
+        .type-effect-container {
+            position: relative;
+            display: inline-block;
+            width: max-content;
+            height: 24px;  /* Adjust according to your font-size if needed */
         }
         
-       .type-effect-text {
-        position: absolute; 
-        top: 0;
-        left: 0;
-        display: inline-block;
-        white-space: nowrap;
-        overflow: hidden;
-        border-right: .2em solid #333;
-        animation: typing 4s steps(40, end) forwards, blink 1s step-end infinite;
-    }
-
-    
-    .type-effect-container {
-        position: relative;
-        display: inline-block;
-        width: max-content;  /* This makes sure the container fits the content width */
-    }
-
-    .type-effect-container .type-effect-text:nth-child(2) {
-        animation-delay: 4.5s;  /* This includes the time for the first phrase to complete and a slight pause */
-    }
+        /* The text that's being "typed" */
+        .type-effect-text {
+            white-space: nowrap;
+            position: absolute;  /* To overlap the phrases */
+            top: 0;
+            left: 0;
+            max-width: 0%;
+            overflow: hidden;  /* To hide overflowing part during animation */
+            border-right: 2px solid #333;  /* Simulates a cursor */
+            animation: typeEffect 4s steps(30, end) forwards, 
+                       blink 1s step-end infinite;
+        }
+        
+        /* A typing effect animation with cursor movement */
+        @keyframes typeEffect {
+            0% {
+                max-width: 0;
+            }
+            100% {
+                max-width: 100%;
+            }
+        }
+        
+        /* Cursor blink animation */
+        @keyframes blink {
+            0%, 100% {
+                border-color: #333;
+            }
+            50% {
+                border-color: transparent;
+            }
+        }
+        
+        /* Delay the appearance of the second phrase */
+        .type-effect-container .type-effect-text:nth-child(2) {
+            animation-delay: 4.5s;  /* Adjust based on the duration of the first animation */
+        }
 
     
         body {
