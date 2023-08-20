@@ -31,26 +31,17 @@
             50% { border-color: transparent; }
         }
         
-        .type-effect-container {
-            position: relative;
-            width: max-content;
-            height: 1em;  /* Adjust based on your font size */
-            border-right: .2em solid #333;
-            white-space: nowrap;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        
         .type-effect-text {
-        position: absolute;
-        top: 0;
-        left: auto;
-        right: 0;
-        max-width: 100%;
+        position: static;  /* Change back to static */
+        display: inline-block;  /* Make it inline */
         border-right: .2em solid #333;
-        white-space: nowrap;
-        animation: typing 4s steps(40, end), blink .75s step-end infinite;
+        animation: blink 1s step-end infinite;
     }
+    
+    .type-effect-container {
+        display: inline-block;  /* Make container inline */
+    }
+
 
 
         
@@ -109,6 +100,9 @@
 </head>
 
 <body>
+    <div class="type-effect-container">
+        <span class="type-effect-text">Software developer</span>
+    </div>
 
     <div class="container my-5">
         <div class="jumbotron bg-white shadow" data-aos="fade-up">
