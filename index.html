@@ -24,33 +24,26 @@
        /* Container to hold the typing text */
         .type-effect-container {
             position: relative;
-            display: inline-block;
-            width: max-content;
-            height: 24px;  /* Adjust according to your font-size if needed */
-        }
-        
-        /* The text that's being "typed" */
-        .type-effect-text {
-            white-space: nowrap;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;  /* Change from max-width to width */
+            width: 15em; /* This needs to be longer than your longest text */
             overflow: hidden;
-            border-right: 2px solid #333;
-            animation: typeEffect 4s steps(30, end) forwards, blink 1s step-end infinite;
+            border-right: 2px solid #333;  /* Cursor */
         }
-
         
-        /* A typing effect animation with cursor movement */
+        .type-effect-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: typeEffect 4s steps(30, end) forwards;
+        }
+        
         @keyframes typeEffect {
-            from {
+            0% {
                 width: 0;
             }
-            to {
-                width: 100%;
+            100% {
+                width: 15em;
             }
         }
+
 
         
         /* Cursor blink animation */
@@ -126,7 +119,6 @@
             <hr class="my-4">
             <div class="type-effect-container">
                 <span class="type-effect-text">Software developer</span>
-                <span class="type-effect-text">Machine learning enthusiast</span>
             </div>
             <p>Discover more about my professional journey.</p>
             <a class="btn btn-primary btn-lg" href="path_to_your_resume.pdf" role="button">View My Resume</a>
