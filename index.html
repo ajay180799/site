@@ -32,25 +32,26 @@
         /* The text that's being "typed" */
         .type-effect-text {
             white-space: nowrap;
-            position: absolute;  /* To overlap the phrases */
+            position: absolute;
             top: 0;
             left: 0;
-            max-width: 0%;
-            overflow: hidden;  /* To hide overflowing part during animation */
-            border-right: 2px solid #333;  /* Simulates a cursor */
-            animation: typeEffect 4s steps(30, end) forwards, 
-                       blink 1s step-end infinite;
+            width: 0;  /* Change from max-width to width */
+            overflow: hidden;
+            border-right: 2px solid #333;
+            animation: typeEffect 4s steps(30, end) forwards, blink 1s step-end infinite;
         }
+
         
         /* A typing effect animation with cursor movement */
         @keyframes typeEffect {
-            0% {
-                max-width: 0;
+            from {
+                width: 0;
             }
-            100% {
-                max-width: 100%;
+            to {
+                width: 100%;
             }
         }
+
         
         /* Cursor blink animation */
         @keyframes blink {
