@@ -31,23 +31,27 @@
             50% { border-color: transparent; }
         }
         
-        .type-effect-text {
-        position: static;  /* Change back to static */
-        display: inline-block;  /* Make it inline */
+       .type-effect-text {
+        position: absolute; 
+        top: 0;
+        left: 0;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
         border-right: .2em solid #333;
-        animation: blink 1s step-end infinite;
+        animation: typing 4s steps(40, end) forwards, blink 1s step-end infinite;
     }
+
     
     .type-effect-container {
-        display: inline-block;  /* Make container inline */
+        position: relative;
+        display: inline-block;
+        width: max-content;  /* This makes sure the container fits the content width */
     }
 
-
-
-        
-        .type-effect-container .type-effect-text:nth-child(2) {
-            animation-delay: 4s;  /* Delay second phrase to appear after the first one */
-        }
+    .type-effect-container .type-effect-text:nth-child(2) {
+        animation-delay: 4.5s;  /* This includes the time for the first phrase to complete and a slight pause */
+    }
 
     
         body {
@@ -100,10 +104,6 @@
 </head>
 
 <body>
-    <div class="type-effect-container">
-        <span class="type-effect-text">Software developer</span>
-    </div>
-
     <div class="container my-5">
         <div class="jumbotron bg-white shadow" data-aos="fade-up">
             <h1 class="display-4">Ajay Rajkumar K</h1>
