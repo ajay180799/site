@@ -21,11 +21,11 @@
                 background-position: 0% 50%;
             }
         }
-        @keyframes typing {
-            0% { width: 0; }
-            50% { width: 0; }
-            100% { width: 100%; }
-        }
+       @keyframes typing {
+        0%, 50% { max-width: 0%; }
+        100% { max-width: 100%; }
+    }
+
         
         @keyframes blink {
             50% { border-color: transparent; }
@@ -44,12 +44,14 @@
         .type-effect-text {
         position: absolute;
         top: 0;
-        left: 0;
-        /* Remove the overflow: hidden; line */
+        left: auto;
+        right: 0;
+        max-width: 100%;
         border-right: .2em solid #333;
         white-space: nowrap;
         animation: typing 4s steps(40, end), blink .75s step-end infinite;
     }
+
 
         
         .type-effect-container .type-effect-text:nth-child(2) {
