@@ -21,6 +21,40 @@
                 background-position: 0% 50%;
             }
         }
+        @keyframes typing {
+            0% { width: 0; }
+            50% { width: 0; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
+        .type-effect-container {
+            position: relative;
+            width: max-content;
+            height: 1em;  /* Adjust based on your font size */
+            border-right: .2em solid #333;
+            white-space: nowrap;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .type-effect-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            border-right: .2em solid #333;
+            white-space: nowrap;
+            animation: typing 8s steps(40, end), blink .75s step-end infinite;
+        }
+        
+        .type-effect-container .type-effect-text:nth-child(2) {
+            animation-delay: 4s;  /* Delay second phrase to appear after the first one */
+        }
+
     
         body {
             font-family: 'Montserrat', sans-serif;
@@ -76,8 +110,12 @@
     <div class="container my-5">
         <div class="jumbotron bg-white shadow" data-aos="fade-up">
             <h1 class="display-4">Ajay Rajkumar K</h1>
-            <p class="lead">An aspiring Computer Science student with curiosity to perennially learn new things in Software engineering, Data science. Strong collaborator with a deep understanding of team dynamics and the ability to adapt seamlessly.</p>
+            <p class="lead">A passionate Computer Science enthusiast on a quest to continually unearth the intricacies of Software Engineering and Data Science. I pride myself on being a dynamic collaborator, deeply attuned to team dynamics, and possessing an innate ability to evolve and adapt in diverse environments.</p>
             <hr class="my-4">
+            <div class="type-effect-container">
+                <span class="type-effect-text">Software developer</span>
+                <span class="type-effect-text">Machine learning enthusiast</span>
+            </div>
             <p>Discover more about my professional journey.</p>
             <a class="btn btn-primary btn-lg" href="path_to_your_resume.pdf" role="button">View My Resume</a>
         </div>
