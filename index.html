@@ -22,9 +22,9 @@
             }
         }
        /* Container to hold the typing text */
-        .type-effect-container {
+         .type-effect-container {
             position: relative;
-            width: 15em; /* This needs to be longer than your longest text */
+            display: inline-block;
             overflow: hidden;
             border-right: 2px solid #333;  /* Cursor */
         }
@@ -32,21 +32,8 @@
         .type-effect-text {
             display: inline-block;
             white-space: nowrap;
-            animation: typeEffect 4s steps(30, end) forwards;
         }
         
-        @keyframes typeEffect {
-            0% {
-                width: 0;
-            }
-            100% {
-                width: 15em;
-            }
-        }
-
-
-        
-        /* Cursor blink animation */
         @keyframes blink {
             0%, 100% {
                 border-color: #333;
@@ -56,10 +43,10 @@
             }
         }
         
-        /* Delay the appearance of the second phrase */
-        .type-effect-container .type-effect-text:nth-child(2) {
-            animation-delay: 4.5s;  /* Adjust based on the duration of the first animation */
+        .type-effect-container {
+            animation: blink 1s infinite;
         }
+
 
     
         body {
@@ -113,25 +100,62 @@
 
 <body>
     <div class="container my-5">
-        <div class="jumbotron bg-white shadow" data-aos="fade-up">
-            <h1 class="display-4">Ajay Rajkumar K</h1>
-            <p class="lead">A passionate Computer Science enthusiast on a quest to continually unearth the intricacies of Software Engineering and Data Science. I pride myself on being a dynamic collaborator, deeply attuned to team dynamics, and possessing an innate ability to evolve and adapt in diverse environments.</p>
-            <hr class="my-4">
-            <div class="type-effect-container">
-                <span class="type-effect-text">Software developer</span>
-            </div>
-            <p>Discover more about my professional journey.</p>
-            <a class="btn btn-primary btn-lg" href="path_to_your_resume.pdf" role="button">View My Resume</a>
-        </div>
 
-        <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="300">
+        <!-- Jumbotron with AOS effects -->
+        <div class="jumbotron bg-white shadow" data-aos="fade-up">
+            <h1 class="display-4" data-aos="fade-down" data-aos-delay="200">Ajay Rajkumar K</h1>
+            <p class="lead" data-aos="fade-right" data-aos-delay="400">A passionate Computer Science enthusiast on a quest to continually unearth the intricacies of Software Engineering and Data Science. I pride myself on being a dynamic collaborator, deeply attuned to team dynamics, and possessing an innate ability to evolve and adapt in diverse environments.</p>
+            <hr class="my-4">
+            <div class="type-effect-container" data-aos="fade-left" data-aos-delay="600">
+                <span class="type-effect-text"></span>
+            </div>
+            <p data-aos="fade-right" data-aos-delay="800">Discover more about my professional journey.</p>
+            <a class="btn btn-primary btn-lg" href="path_to_your_resume.pdf" role="button" data-aos="zoom-in" data-aos-delay="1000">View My Resume</a>
+        </div>
+    
+        <!-- Project card with AOS effects -->
+        <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="1200">
             <div class="card-body">
-                <h2 class="card-title">Projects</h2>
-                <p class="card-text">I have a variety of projects that showcase my skills and expertise. Check them out on GitHub!</p>
-                <a href="https://github.com/ajay180799" target="_blank" class="btn btn-secondary">View on GitHub</a>
+                <h2 class="card-title" data-aos="fade-down" data-aos-delay="1400">Projects</h2>
+                <p class="card-text" data-aos="fade-right" data-aos-delay="1600">I have a variety of projects that showcase my skills and expertise. Check them out on GitHub!</p>
+                <a href="https://github.com/ajay180799" target="_blank" class="btn btn-secondary" data-aos="zoom-in" data-aos-delay="1800">View on GitHub</a>
             </div>
         </div>
-    </div>
+</div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phrases = ["Software developer", "Machine learning enthusiast"];
+            let currentPhraseIndex = 0;
+            let charIndex = 0;
+            const typeEffectText = document.querySelector('.type-effect-text');
+            
+            function type() {
+                if (charIndex < phrases[currentPhraseIndex].length) {
+                    typeEffectText.textContent += phrases[currentPhraseIndex].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(type, 100);  // Typing speed
+                } else {
+                    setTimeout(erase, 2000); // Wait for 2 seconds and start erasing
+                }
+            }
+            
+            function erase() {
+                if (charIndex > 0) {
+                    typeEffectText.textContent = phrases[currentPhraseIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(erase, 100);  // Erasing speed
+                } else {
+                    currentPhraseIndex++;
+                    if (currentPhraseIndex >= phrases.length) currentPhraseIndex = 0;
+                    setTimeout(type, 500); // After erasing, start typing next phrase
+                }
+            }
+            
+            type();  // Start the typing effect
+        });
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
