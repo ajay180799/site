@@ -135,6 +135,7 @@
             font-weight: 400; /* Regular */
         }
     </style>
+    <script src="lazysizes.min.js"></script>
 </head>
 
 <body>
@@ -159,13 +160,14 @@
     </div>
 
     
-    <div class="card shadow mb-4" data-aos="fade-up" data-aos-duration="500">
-        <div class="card-body">
-            <h2 class="card-title" data-aos="fade-down" data-aos-delay="150" data-aos-duration="500">Projects</h2>
-            <p class="card-text" data-aos="fade-right" data-aos-delay="250" data-aos-duration="500">I have a variety of projects that showcase my skills and expertise. Check them out on GitHub!</p>
-            <a href="https://github.com/ajay180799" target="_blank" class="btn btn-primary">View on GitHub</a>
-        </div>
+    <div class="card shadow mb-4 lazyload" data-sizes="auto" data-aos="fade-up" data-aos-duration="500">
+      <div class="card-body">
+        <h2 class="card-title" data-aos="fade-down" data-aos-delay="150" data-aos-duration="500">Projects</h2>
+        <p class="card-text" data-aos="fade-right" data-aos-delay="250" data-aos-duration="500">I have a variety of projects that showcase my skills and expertise. Check them out on GitHub!</p>
+        <a href="https://github.com/ajay180799" target="_blank" class="btn btn-primary">View on GitHub</a>
+      </div>
     </div>
+
 </div>
 
 
@@ -204,6 +206,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
