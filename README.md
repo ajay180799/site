@@ -1,4 +1,4 @@
-# [Ajay's Portfolio] (ajay180799.github.io)
+# ([[Ajay's Portfolio](https://ajay180799.github.io/site/)
 
 This repository contains the code for my personal portfolio site, showcasing my skills, projects, and experiences.
 
