@@ -98,7 +98,7 @@
             padding: 3.5rem;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 2.5rem; /* Increased to match card spacing */
+            margin-bottom: 2.5rem;
         }
 
         .jumbotron:hover {
@@ -112,27 +112,13 @@
             border: none;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-            position: relative;
-            margin-bottom: 2.5rem; /* Consistent spacing */
+            margin-bottom: 2.5rem;
         }
 
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
             border: 2px solid #5e35b1;
-        }
-
-        .featured-project::before {
-            content: '★ Featured';
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            background: #5e35b1;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 600;
         }
 
         .btn-primary {
@@ -212,7 +198,7 @@
             }
             .jumbotron, .card {
                 padding: 2rem;
-                margin-bottom: 2rem; /* Slightly smaller for mobile */
+                margin-bottom: 2rem;
             }
             .skills-grid {
                 grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -256,15 +242,22 @@
                 <br>
                 I'm <span style="color: #5e35b1;">Ajay Rajkumar</span>
             </div>
-            <p class="lead" data-aos="fade-right" data-aos-delay="200" data-aos-duration="500"><span class="medium" style="color: purple;">A passionate Software Developer</span> on a quest to continually unearth the <span class="medium" style="color: purple;">intricacies of Machine Learning and Data Science</span>. I pride myself on being a <span class="medium" style="color: purple;">dynamic collaborator</span>, deeply attuned to <span class="medium" style="color: purple;">team dynamics</span>, and possessing an innate ability to <span class="medium" style="color: purple;">evolve and adapt</span> in diverse environments.
-</p>
+            <p class="lead" data-aos="fade-right" data-aos-delay="200" data-aos-duration="600">
+                A passionate Software Developer on a quest to continually unearth the intricacies of Machine Learning and Data Science. I pride myself on being a dynamic collaborator, deeply attuned to team dynamics, and possessing an innate ability to evolve and adapt in diverse environments.
+            </p>
             <hr class="my-4">
             <div class="type-effect-container" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
                 <span class="type-effect-text"></span>
             </div>
+            <p data-aos="fade-right" data-aos-delay="400" data-aos-duration="600">
+                Discover more about my professional journey.
+            </p>
+            <div data-aos="zoom-in" data-aos-delay="500" data-aos-duration="600">
+                <a class="btn btn-primary btn-lg" href="my-resume-1.pdf" role="button">View my Resume</a>
+            </div>
         </div>
 
-        <div class="card shadow mb-4 lazyload featured-project" id="projects" data-aos="fade-up" data-aos-duration="600">
+        <div class="card shadow mb-4 lazyload" id="projects" data-aos="fade-up" data-aos-duration="600">
             <div class="card-body">
                 <h2 class="card-title" data-aos="fade-down" data-aos-delay="150" data-aos-duration="600">Projects</h2>
                 <p class="card-text" data-aos="fade-right" data-aos-delay="250" data-aos-duration="600">
@@ -353,4 +346,3 @@
     </script>
 </body>
 </html>
-
