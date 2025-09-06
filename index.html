@@ -1,226 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajay's Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        .medium {
-            font-weight: 500;
-        }
-        
-        h1 {
-            font-size: 3em;
-            font-weight: 500;
-        }
-        
-        h2 {
-            font-size: 2em;
-            font-weight: 500;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1a3d, #9b3c3c, #2c4a7e);
+            background-size: 300% 300%;
+            animation: gradientBackground 12s ease infinite;
+            margin: 0;
+            color: #2d2d2d;
+            scroll-behavior: smooth;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        p {
-            line-height: 1.6;
-            font-size: 1.1em; 
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Sticky Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #5e35b1;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #4527a0;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 2rem;
+        }
+
+        .introduction {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2d2d2d;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .sparkles {
+            display: inline-block;
+            animation: sparkleShine 1.5s infinite;
         }
 
         @keyframes sparkleShine {
-            0%, 100% { opacity: 0.7; }
+            0%, 100% { opacity: 0.6; }
             50% { opacity: 1; }
         }
-        
-        .sparkles {
-            display: inline-block;
-            animation: sparkleShine 1s infinite;
-        }
 
-
-        .introduction {
-            font-size: 2em;  /* Adjust this value to your preference */
-            font-weight: 500;
-        }
-        
-        /* Gradient Background Animation */
-        @keyframes gradientBackground {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-       /* Container to hold the typing text */
-         .type-effect-container {
+        .type-effect-container {
             position: relative;
             display: inline-block;
             overflow: hidden;
-            border-right: 2px solid #333;  /* Cursor */
+            border-right: 3px solid #2d2d2d;
+            margin: 1.5rem 0;
         }
-        
+
         .type-effect-text {
-            font-size: 1.4em;
-            display: inline-block;
-            white-space: nowrap;
+            font-size: 1.6rem;
             font-weight: 600;
-            color: #8e44ad;
+            color: #b39ddb;
+            white-space: nowrap;
         }
-        
+
         @keyframes blink {
-            0%, 100% {
-                border-color: #333;
-            }
-            50% {
-                border-color: transparent;
-            }
+            0%, 100% { border-color: #2d2d2d; }
+            50% { border-color: transparent; }
         }
-        
+
         .type-effect-container {
-            animation: blink 1s infinite;
+            animation: blink 0.8s infinite;
         }
 
+        .jumbotron {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 3.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2.5rem; /* Increased to match card spacing */
+        }
 
-    
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(120deg, #3a1c71, #d76d77, #6f86d6);
-            background-size: 200% 200%;
-            animation: gradientBackground 30s ease infinite;
-            height: 100%;
-            margin: 0;
-            color: #333;
+        .jumbotron:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
         }
-    
-        /* Content Box and Button Enhancements */
-        .jumbotron, .card {
-            background-color: rgba(255, 255, 255, 0.8);  /* This is off-white with 90% opacity */
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease-out;
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            position: relative;
+            margin-bottom: 2.5rem; /* Consistent spacing */
         }
-    
-        /* Refining Buttons */
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            border: 2px solid #5e35b1;
+        }
+
+        .featured-project::before {
+            content: '★ Featured';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #5e35b1;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
         .btn-primary {
-            background-color: #007bff; /* Blue color */
-            color: #fff;  /* White text */
-            border: none; /* Removing border */
+            background-color: #5e35b1;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        
+
         .btn-primary:hover {
-            background-color: #0056b3; /* Slightly darker blue on hover */
+            background-color: #4527a0;
+            transform: scale(1.05);
         }
-    
-        .jumbotron:hover, .card:hover {
-            transform: scale(1.02);
-        }
-    
-        /* Links Enhancement */
-        a:hover {
-            text-decoration: underline;
+
+        p {
+            line-height: 1.8;
+            font-size: 1.2rem;
             color: #444;
         }
-    
-        /* Font Weight */
-        h1, h2, .btn {
-            font-weight: 700; /* Bold */
+
+        h1, h2 {
+            font-weight: 700;
+            color: #2d2d2d;
         }
-        p, a {
-            font-weight: 400; /* Regular */
+
+        a {
+            color: #5e35b1;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #4527a0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            background: #e9ecef;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .introduction {
+                font-size: 2rem;
+            }
+            .type-effect-text {
+                font-size: 1.3rem;
+            }
+            .jumbotron, .card {
+                padding: 2rem;
+                margin-bottom: 2rem; /* Slightly smaller for mobile */
+            }
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
         }
     </style>
-    <script src="lazysizes.min.js"></script>
+    <script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
-
 <body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ajay's Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container my-5">
-    <!-- Jumbotron with AOS effects -->
-    <div class="jumbotron bg-white shadow" data-aos="fade-up" data-aos-duration="500">
-        <div class="introduction">
-            Hello there! <span class="sparkles">✨</span>
-            <br>
-            I'm <span style="color: #800080;">Ajay Rajkumar</span>
-        </div>
-        <p class="lead" data-aos="fade-right" data-aos-delay="200" data-aos-duration="500"><span class="medium" style="color: purple;">A passionate Computer Science graduate</span> on a quest to continually unearth the <span class="medium" style="color: purple;">intricacies of Machine Learning and Data Science</span>. I pride myself on being a <span class="medium" style="color: purple;">dynamic collaborator</span>, deeply attuned to <span class="medium" style="color: purple;">team dynamics</span>, and possessing an innate ability to <span class="medium" style="color: purple;">evolve and adapt</span> in diverse environments.
+        <div class="jumbotron" id="home" data-aos="fade-up" data-aos-duration="600">
+            <div class="introduction">
+                Hello there! <span class="sparkles">✨</span>
+                <br>
+                I'm <span style="color: #5e35b1;">Ajay Rajkumar</span>
+            </div>
+            <p class="lead" data-aos="fade-right" data-aos-delay="200" data-aos-duration="500"><span class="medium" style="color: purple;">A passionate Computer Science graduate</span> on a quest to continually unearth the <span class="medium" style="color: purple;">intricacies of Machine Learning and Data Science</span>. I pride myself on being a <span class="medium" style="color: purple;">dynamic collaborator</span>, deeply attuned to <span class="medium" style="color: purple;">team dynamics</span>, and possessing an innate ability to <span class="medium" style="color: purple;">evolve and adapt</span> in diverse environments.
 </p>
-        <hr class="my-4">
-        <div class="type-effect-container" data-aos="fade-left" data-aos-delay="300" data-aos-duration="500">
-            <span class="type-effect-text"></span>
+            <hr class="my-4">
+            <div class="type-effect-container" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
+                <span class="type-effect-text"></span>
+            </div>
         </div>
-        <p data-aos="fade-right" data-aos-delay="400" data-aos-duration="500">Discover more about my professional journey.</p>
-        <div data-aos="zoom-in" data-aos-delay="600" data-aos-duration="500">
-            <a class="btn btn-primary btn-lg" href="my-resume-1.pdf" role="button">View my Resume</a>
+
+        <div class="card shadow mb-4 lazyload featured-project" id="projects" data-aos="fade-up" data-aos-duration="600">
+            <div class="card-body">
+                <h2 class="card-title" data-aos="fade-down" data-aos-delay="150" data-aos-duration="600">Projects</h2>
+                <p class="card-text" data-aos="fade-right" data-aos-delay="250" data-aos-duration="600">
+                    Explore my collection of projects showcasing my expertise in Machine Learning, Data Science and Generative AI. Visit my GitHub to see more!
+                </p>
+                <a href="https://github.com/ajay180799" target="_blank" class="btn btn-primary">View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4 lazyload" id="skills" data-aos="fade-up" data-aos-duration="600">
+            <div class="card-body">
+                <h2 class="card-title" data-aos="fade-down" data-aos-delay="150" data-aos-duration="600">Skills</h2>
+                <p class="card-text" data-aos="fade-right" data-aos-delay="250" data-aos-duration="600">
+                    My technical toolkit includes a range of skills in programming, data analysis, and machine learning.
+                </p>
+                <div class="skills-grid" data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">TensorFlow</div>
+                    <div class="skill-item">PyTorch</div>
+                    <div class="skill-item">LangChain</div>
+                    <div class="skill-item">Data Visualization</div>
+                </div>
+            </div>
         </div>
     </div>
-
-    
-    <div class="card shadow mb-4 lazyload" data-sizes="auto" data-aos="fade-up" data-aos-duration="500">
-      <div class="card-body">
-        <h2 class="card-title" data-aos="fade-down" data-aos-delay="150" data-aos-duration="500">Projects</h2>
-        <p class="card-text" data-aos="fade-right" data-aos-delay="250" data-aos-duration="500">I have a variety of projects that showcase my skills and expertise. Check them out on GitHub!</p>
-        <a href="https://github.com/ajay180799" target="_blank" class="btn btn-primary">View on GitHub</a>
-      </div>
-    </div>
-
-</div>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const phrases = ["Machine learning enthusiast", "Software developer"];
+            const phrases = ["Machine Learning Enthusiast", "Data Science Explorer", "Software Developer", "AI Innovator"];
             let currentPhraseIndex = 0;
             let charIndex = 0;
             const typeEffectText = document.querySelector('.type-effect-text');
-            
+
             function type() {
                 if (charIndex < phrases[currentPhraseIndex].length) {
                     typeEffectText.textContent += phrases[currentPhraseIndex].charAt(charIndex);
                     charIndex++;
-                    setTimeout(type, 100);  // Typing speed
+                    setTimeout(type, 80);
                 } else {
-                    setTimeout(erase, 2000); // Wait for 2 seconds and start erasing
+                    setTimeout(erase, 1500);
                 }
             }
-            
+
             function erase() {
                 if (charIndex > 0) {
                     typeEffectText.textContent = phrases[currentPhraseIndex].substring(0, charIndex - 1);
                     charIndex--;
-                    setTimeout(erase, 100);  // Erasing speed
+                    setTimeout(erase, 50);
                 } else {
-                    currentPhraseIndex++;
-                    if (currentPhraseIndex >= phrases.length) currentPhraseIndex = 0;
-                    setTimeout(type, 500); // After erasing, start typing next phrase
+                    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                    setTimeout(type, 300);
                 }
             }
-            
-            type();  // Start the typing effect
+
+            type();
+
+            // Initialize particles.js
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 50, density: { enable: true, value_area: 800 } },
+                    color: { value: '#ffffff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: false },
+                    move: { enable: true, speed: 1, direction: 'none', random: true }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+                    modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+                },
+                retina_detect: true
+            });
         });
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var lazyLoadInstance = lazySizes.createLazyLoadInstance();
-        lazyLoadInstance.loadAll();
-      });
-    </script>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
     </script>
 </body>
-
 </html>
